@@ -1,0 +1,45 @@
+/* Ensure full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base container for all pages */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px); /* account for navbar */
+  padding-top: 70px; /* ensures navbar stays visible */
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  
+}
+
+
+/* Content box */
+.page-content {
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+/* Page-specific backgrounds */
+.login-bg {
+  background: linear-gradient(135deg, #2196f3, #21cbf3); /* blue gradient */
+}
+
+.dashboard-bg {
+  background: linear-gradient(135deg, #4caf50, #81c784); /* green gradient */
+}
+
+.transactions-bg {
+  background: linear-gradient(135deg, #ff9800, #ffc107); /* orange gradient */
+}
+nav {
+  position: relative;
+  z-index: 1000;
+}

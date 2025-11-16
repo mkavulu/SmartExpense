@@ -1,0 +1,64 @@
+/* Full-page container */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical center */
+  align-items: center;       /* horizontal center */
+  min-height: 100vh;         /* full viewport height */
+  background: linear-gradient(135deg, #4cafef, #81c784); /* nice gradient */
+  color: #fff;               /* text color */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Centered content box */
+.welcome-content {
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+/* Title */
+.welcome-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Description */
+.welcome-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn.primary {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #ff9800;
+  color: white;
+}
+
+/* Footer */
+.welcome-footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
