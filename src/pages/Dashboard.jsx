@@ -9,7 +9,19 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    API.get("analytics/monthly/").then((res) => setSummary(res.data));
+    // Fetch both monthly and monthly-summary
+    Promise.all([
+      API.get("analytics/monthly/"),
+      API.get("analytics/monthly-summary/")
+    ])
+      .then(([monthlyRes, summaryRes]) => {
+        // Merge both responses into one summary object
+        setSummary({
+          ...monthlyRes.data,
+          ...summaryRes.data
+        });
+      })
+      .catch(err => console.error("Error fetching analytics:", err));
   }, []);
 
   return (
@@ -30,6 +42,13 @@ export default function Dashboard() {
         <Typography variant="h6">
           <b>Net:</b> Ksh {summary.net || 0}
         </Typography>
+
+        {/* Example: if monthly-summary returns extra fields */}
+        {summary.transaction_count && (
+          <Typography variant="h6">
+            <b>Transactions:</b> {summary.transaction_count}
+          </Typography>
+        )}
 
         <Button
           variant="contained"
