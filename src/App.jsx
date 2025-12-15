@@ -1,9 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+//import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+
 import { ThemeProvider, CssBaseline, IconButton } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
-import { getTheme } from "./theme";
 
+import { getTheme } from "./theme";
 import { AuthProvider } from "./contex/AuthContext";
 
 import Login from "./pages/Login";
@@ -16,15 +18,15 @@ import WelcomePage from "./pages/WelcomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 
-// -----------------------
-// Content with conditional Navbar
-// -----------------------
+/* -----------------------
+   Content with conditional Navbar
+----------------------- */
 function AppContent() {
   const location = useLocation();
 
   return (
     <>
-      {/* Only show Navbar if not on WelcomePage */}
+      {/* Hide Navbar on Welcome page */}
       {location.pathname !== "/" && <Navbar />}
 
       <Routes>
@@ -59,16 +61,16 @@ function AppContent() {
           }
         />
 
-        {/* fallback */}
+        {/* Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
   );
 }
 
-// -----------------------
-// Main App with Theme Toggle
-// -----------------------
+/* -----------------------
+   Main App
+----------------------- */
 export default function App() {
   const [mode, setMode] = useState("light");
 
@@ -90,7 +92,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        {/* Theme Toggle Button */}
+        {/* Theme Toggle */}
         <IconButton
           onClick={toggleTheme}
           sx={{ position: "fixed", top: 10, right: 10, zIndex: 2000 }}
