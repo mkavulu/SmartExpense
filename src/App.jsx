@@ -1,12 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-//import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import { ThemeProvider, CssBaseline, IconButton } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
 
 import { getTheme } from "./theme";
-import { AuthProvider } from "./contex/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -19,7 +18,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 
 /* -----------------------
-   Content with conditional Navbar
+   App content with conditional Navbar
 ----------------------- */
 function AppContent() {
   const location = useLocation();
@@ -101,10 +100,10 @@ export default function App() {
           {mode === "light" ? <DarkMode /> : <LightMode />}
         </IconButton>
 
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
+        {/* Only AppContent here; BrowserRouter is in main.jsx */}
+        <AppContent />
       </ThemeProvider>
     </AuthProvider>
   );
 }
+

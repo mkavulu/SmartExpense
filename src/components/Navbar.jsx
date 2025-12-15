@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../contex/AuthContext";   // fixed typo here
+import { AuthContext } from "../context/AuthContext";   // fixed typo here
 
 export default function Navbar() {
   const { user, logout } = useContext(AuthContext);

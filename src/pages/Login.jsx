@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { TextField, Button, Typography, Box } from "@mui/material";
 import API from "../api/axios";
-import { AuthContext } from "../contex/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 import "./PageStyles.css"; // Shared CSS background
